@@ -1,6 +1,12 @@
 # Pomodoro Timer 
 Study Timer and Rest Timer for n iterations
 
+## Prerequisites
+Install virtualenv 
+```bash 
+pip install virtualenv
+```
+
 Local setup
 1. Clone the repo
 ```python
