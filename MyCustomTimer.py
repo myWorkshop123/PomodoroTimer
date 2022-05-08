@@ -1,26 +1,9 @@
-# Create a program where the user specifies a hrs, b minutes, c seconds and after that duration he should
-# see hello world on the display
-
-#TODO Take the input from user
-# hrs,minutes,seconds = 0,0,3
-
-# print hello world after the mentioned time
 import time
-# time.sleep(seconds)
-# print('hello world')
-#
-# def convert_hours_and_minutes_into_seconds(hours,minutes,seconds):
-#     seconds = hours * 60 * 60 + minutes * 60 + seconds
-#     return seconds
-#
-# def call_sleep():
-#     seconds = convert_hours_and_minutes_into_seconds(hrs,minutes,seconds=3)
-#     time.sleep(seconds)
-#     print('hello')
+
 
 class MyCustomTimer:
-    def __init__(self,hrs,mins,secs):
-        if isinstance(hrs,int) and isinstance(mins,int) and isinstance(secs,int):
+    def __init__(self, hrs, mins, secs):
+        if isinstance(hrs, int) and isinstance(mins, int) and isinstance(secs, int):
             if hrs >= 0 and mins >= 0 and secs >= 0:
                 if secs <= 60 and mins <= 60:
                     self.hrs = hrs
@@ -40,11 +23,12 @@ class MyCustomTimer:
     def call_sleep(self):
         total_second = self.transform_everything_into_seconds()
         time.sleep(total_second)
+
     def do_something(self, *args):
-        #TODO perform typechecking here
+        # TODO perform typechecking here
         self.call_sleep()
-        print(f'Time up do your thing after {self.hrs} hrs, {self.mins} minutes and {self.secs} seconds')
         for funcs in args:
-            funcs()
-
-
+            if funcs.__name__ == 'display_popup':
+                funcs()
+            else:
+                funcs()
